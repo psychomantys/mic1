@@ -262,7 +262,7 @@ return:	BIPUSH 0xa		// print cr
 .end-method
 
 
-// Funcao para a multiplicacao
+// Funcao para a divisão
 .method MYMUL(num1,num2)
 .var
 count
@@ -271,23 +271,22 @@ count
 	BIPUSH 0x0		// initialize i
 	ISTORE count
 
+	ILOAD num1
+
 while:
 // Condicao
 
 	// num1>0
-	ILOAD num1
+	DUP
 	IFLT done
 
 // Corpo do while
 
-
-	ILOAD num1
+	DUP
 	ILOAD num2
 	ISUB			// num1=num1-num2
 
-	ISTORE num1		// num1=pilha
-
-	ILOAD num1
+	DUP
 	// if(num1<0) break;
 	IFLT done
 
